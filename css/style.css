@@ -1,0 +1,42 @@
+
+/*
+ * common classes
+ */
+.paddingT0{padding-top:0 !important;}
+.clear{display:block;clear:both;}
+
+
+
+/*
+ * page one style
+ */
+.header.ui-bar-inherit {padding:10px;background-color:#659CEF;}
+
+.ui-btn.ui-icon-grid.options-icon{background:#fff;float:right;padding:16px; left: -5px; position: relative;color:#fff;background:transparent;}
+#searchForm .ui-field-contain{margin-bottom:5px;padding-bottom:0;padding-top:0;margin-top:10px;}
+#searchForm .ui-field-contain input{ font-size: 0.95em;}
+#searchMap{margin-top:0;font-size:12px;margin-top: 4px;padding: 8px 5px;}
+#map{padding:0;min-height:240px;}
+#searchForm .ui-radio{display:inline-block;}
+#searchForm .ui-field-contain label.travelMode{padding-top:8px;padding-bottom:8px;}
+#searchForm .ui-field-contain input[type="radio"]{margin:0;visibility:hidden;}
+#searchForm #End{display:inline-block;}
+#searchForm .ui-input-text.ui-body-inherit{display: inline-block;margin-top: 0; width: 70%;margin-right:10px;}
+
+
+#AddLocSearch .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset{border:0;margin:0;}
+#pac-input{ height: 25px;left: 10px;width:50%;}
+#map-canvas,#map-canvasedit{height:400px;}
+
+#updatelink,#deletelink{margin-top:0;margin-bottom:0;padding: 6px 11px;}
+.hidden{display:none;visibility:hidden;}
+.alert
+{
+    font-size: 1.3em;
+    padding: 1em;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+    word-wrap: normal;
+    z-index:1000;
+}

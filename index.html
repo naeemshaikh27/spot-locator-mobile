@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Spot Locator</title>
+         <link href="css/jquery_mobile.css" rel="stylesheet"/>
+         <link rel="stylesheet" href="css/font-awesome.min.css" />
+         <link href="css/style.css" rel="stylesheet"/>
+       
+         <script src="js/jquery.min.js"></script>
+         <script src="js/jquery_mobile.js"></script>
+         <script src="js/confirmDialog.js"></script>
+       
+           <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+	
+    	<script src="js/script.js"></script>
+        <script src="js/addLoc.js"></script>
+         <script src="js/editLoc.js"></script>
+     
+    </head>
+    <body>
+    	
+    	
+    	
+     <div data-role="page" id="pageone">
+     	
+  <div data-role="panel" id="myPanel"  data-position="right"> 
+    
+     <ul data-role="listview" data-theme="b">
+     	 
+      <li><a class="addLoc_link">Add location</a></li>
+     
+      <li><a href="#login_page">login </a></li>
+    
+      <li><a class="myplacesLink">My Places </a></li>
+    </ul>
+ 
+  </div> 
+
+
+  <div data-role="header" class="header">
+ <img src="css/images/Syne-logo.png" class="logo"/>
+ 
+  <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow options-icon  ui-icon-grid ui-btn-icon-left  ui-nodisc-icon"></a>
+  </div>
+
+  <div data-role="main" class="ui-content paddingT0">
+  
+  <div id="searchForm">
+  	<div id="geolocation">
+  		
+  	</div>
+  	<div class="ui-field-contain">
+  	
+ 
+  	<input type="text" id="End" placeholder="To:Enter Code"/><button id="searchMap" class="ui-btn ui-btn-inline" >Search</button>
+  
+  <span class="clear"></span>
+  	<label class="travelMode"><input type="radio" name="travelMode" value="DRIVING"  /> Car</label>
+    <label class="travelMode"><input type="radio" name="travelMode" value="BICYCLING" /> Bike</label>
+    <label class="travelMode"><input type="radio" name="travelMode" value="TRANSIT" /> Bus</label>
+    <label class="travelMode"><input type="radio" name="travelMode" value="WALKING" checked/> Walk</label>
+  	</div>
+  
+
+  </div>
+  
+ <div id="map" class="ui-content">
+  	
+  	
+  </div>
+  
+  </div>
+
+
+ 
+
+ 
+</div> 
+
+
+
+
+
+<!-- login page starts -->
+
+<div data-role="page" id="login_page">
+	<div data-role="panel" id="myPanel-login"  data-position="right"> 
+    <h2>Menu</h2>
+    <a href="#pageone">Search </a>
+  
+  </div> 
+
+
+  <div data-role="header" class="header">
+ <img src="css/images/Syne-logo.png" class="logo"/>
+ 
+  <a href="#myPanel-login" class="ui-btn ui-btn-inline ui-corner-all ui-shadow options-icon  ui-icon-grid ui-btn-icon-left  ui-nodisc-icon"></a>
+  </div>
+			<div data-role="main" class="ui-content">
+				<form>
+					<label for="textinput-s">User Name: </label>
+					<input type="text" id="username" placeholder="User Name" data-clear-btn="true">
+					<label for="select-native-s">Password: </label>
+					<input type="text" id="password" placeholder="Password" data-clear-btn="true">
+					
+					<label><a href="#forgotPass" id="forgot_pass">forgot password</a></label>
+					<button class="ui-btn ui-btn-inline" id="login-btn">
+						LOGIN
+					</button>
+					<button class="ui-btn ui-btn-inline">
+						CLEAR
+					</button>
+				</form>
+				<a href="#sign_up_page" data-transition="slide">Create new account</a>
+			</div>
+
+			
+		</div>
+
+
+
+
+<!-- sign up page -->
+<div data-role="page" id="sign_up_page">
+			<div data-role="panel" id="myPanelSign"  data-position="right"> 
+   <h2>Menu</h2>
+    <a href="#pageone">Search </a>
+  	
+  </div> 
+
+
+  <div data-role="header" class="header">
+ <img src="css/images/Syne-logo.png" class="logo"/>
+ 
+  <a href="#myPanelSign" class="ui-btn ui-btn-inline ui-corner-all ui-shadow options-icon  ui-icon-grid ui-btn-icon-left  ui-nodisc-icon"></a>
+  </div>
+			<div class="ui-content">
+				<form method="post" action="#">
+				<label for="fullname">Full Name: </label>
+					<input type="text" id="fullname" placeholder="Full Name" data-clear-btn="true">
+				<label for="email_id">Email id: </label>
+					<input type="email" id="email_id" placeholder="Email id" data-clear-btn="true">
+				<label for="passwd">Password: </label>
+					<input type="password" id="passwd" placeholder="Password" data-clear-btn="true">
+				<label for="confirm_password">Confirm Password: </label>
+					<input type="password" id="confirm_password" placeholder="Confirm Password" data-clear-btn="true">
+				<label for="mob_no">Mob No: </label>
+					<input type="text" id="mob_no" placeholder="Mobile Number" data-clear-btn="true">
+				<button class="ui-btn ui-btn-inline" id="sign_in-btn">SUBMIT</button>
+				<button class="ui-btn ui-btn-inline" type="reset">CLEAR</button>
+				</form>
+				<a href="#login_page" data-transition="slide" data-direction="reverse">Already have account?</a>
+			</div>
+			
+		</div>
+
+
+
+
+
+
+<!-- add location page -->
+<div data-role="page" id="add_location">
+			<div data-role="panel" id="myPaneladd"  data-position="right"> 
+   <h2>Menu</h2>
+    <a href="#pageone">Search </a>
+    <a href="#MyPlaces">My Places </a>
+  	
+  </div> 
+
+
+  <div data-role="header" class="header">
+ <img src="css/images/Syne-logo.png" class="logo"/>
+ 
+  <a href="#myPaneladd" class="ui-btn ui-btn-inline ui-corner-all ui-shadow options-icon  ui-icon-grid ui-btn-icon-left  ui-nodisc-icon"></a>
+  </div>
+			<div class="ui-content">
+			
+			<div id="AddLocSearch" align="right">
+				<a href="#AddLocPopupDialog" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Next</a>
+				<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+			</div>
+			<div id="map-canvas"></div>
+			</div>
+			
+			<!--add location popup -->
+			 <div data-role="popup" id="AddLocPopupDialog">
+     
+		
+		      <div data-role="main" class="ui-content">
+		       <label for="AddLocName">Enter Name For Location</label>
+		       <input type="text" id="AddLocName"/>
+		       
+		         <label for="AddLocDesc">Enter Description For Location</label>
+		         <input type="text" id="AddLocDesc"/>
+		        <a href="#" id="SubmitLoc" class="ui-btn ui-corner-all ui-shadow  ui-btn-inline " data-rel="back">submit</a>
+		          <a href="#" class="ui-btn ui-corner-all ui-shadow  ui-btn-inline " data-rel="back">back</a>
+		      </div>
+
+     
+    </div>
+
+			
+</div>
+
+
+
+
+
+<!-- edit location page -->
+<div data-role="page" id="edit_location">
+			<div data-role="panel" id="myPaneledit"  data-position="right"> 
+   <h2>Menu</h2>
+    <a href="#pageone">Search </a>
+    <a href="#MyPlaces">My Places </a>
+  	
+  </div> 
+
+
+  <div data-role="header" class="header">
+ <img src="css/images/Syne-logo.png" class="logo"/>
+ 
+  <a href="#myPaneledit" class="ui-btn ui-btn-inline ui-corner-all ui-shadow options-icon  ui-icon-grid ui-btn-icon-left  ui-nodisc-icon"></a>
+  </div>
+			<div class="ui-content">
+			
+			<div id="editLocSearch" align="right">
+				<a href="#editLocPopupDialog" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Next</a>
+				<input id="pac-input2" class="controls" type="text" placeholder="Search Box">
+			</div>
+			<div id="map-canvasedit"></div>
+			</div>
+			
+			<!--add location popup -->
+			 <div data-role="popup" id="editLocPopupDialog">
+     
+		
+		      <div data-role="main" class="ui-content">
+		       <label for="editLocName">Enter Name For Location</label>
+		       <input type="text" id="editLocName"/>
+		       
+		         <label for="editLocDesc">Enter Description For Location</label>
+		         <input type="text" id="editLocDesc"/>
+		        <a href="#" id="SubmitEditLoc" class="ui-btn ui-corner-all ui-shadow  ui-btn-inline " data-rel="back">submit</a>
+		          <a href="#" class="ui-btn ui-corner-all ui-shadow  ui-btn-inline " data-rel="back">back</a>
+		      </div>
+
+     
+    </div>
+
+			
+</div>
+
+
+
+
+
+
+
+<!--forgot password page -->
+<div data-role="page" id="forgotPass">
+			<div data-role="panel" id="myPanelForgotpass"  data-position="right"> 
+   <h2>Menu</h2>
+    <a href="#pageone">Search </a>
+  	
+  </div> 
+
+
+  <div data-role="header" class="header">
+ <img src="css/images/Syne-logo.png" class="logo"/>
+ 
+  <a href="#myPanelForgotpass" class="ui-btn ui-btn-inline ui-corner-all ui-shadow options-icon  ui-icon-grid ui-btn-icon-left  ui-nodisc-icon"></a>
+  </div>
+			<div class="ui-content">
+			<form>
+					<label for="ForgotEmail">Enter Email: </label>
+					<input type="text" id="ForgotEmail" placeholder="User Name" data-clear-btn="true">
+				
+					<button class="ui-btn ui-btn-inline" id="forgot-btn">
+						submit
+					</button>
+					
+				</form>
+			</div>
+			
+		</div>
+
+
+
+
+
+
+<!--My Places page -->
+<div data-role="page" id="MyPlaces">
+<div data-role="panel" id="myPanelPlaces"  data-position="right"> 
+   <h2>Menu</h2>
+    <a href="#pageone">Search </a>
+  	<a class="addLoc_link">Add location</a>
+</div> 
+
+
+			<div data-role="header" class="header">
+				 <img src="css/images/Syne-logo.png" class="logo"/>
+				 <a href="#myPanelPlaces" class="ui-btn ui-btn-inline ui-corner-all ui-shadow options-icon  ui-icon-grid ui-btn-icon-left  ui-nodisc-icon"></a>
+			</div>
+			
+			
+			
+				
+			
+			<div class="ui-content">
+			
+		
+			
+	<ul data-role="listview" data-inset="true">
+    
+    </ul>
+			
+		
+			</div>
+			
+</div>
+
+
+
+
+
+    </body>
+</html>
