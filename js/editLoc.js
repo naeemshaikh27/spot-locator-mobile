@@ -218,7 +218,7 @@ google.maps.event.addListener(map, 'click', function(event) {
 */
 $(document).delegate('#edit_location.ui-page', 'pageshow', function () {
     //Your code for each page load here
-
+  $("#SubmitEditLoc").off("click");
     initialize3();
   // remove deligate once it has initialized the map
     
